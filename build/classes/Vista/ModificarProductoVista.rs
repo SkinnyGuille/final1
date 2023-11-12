@@ -1,0 +1,5 @@
+compra2.Vista.ModificarProductoVista$4
+compra2.Vista.ModificarProductoVista$3
+compra2.Vista.ModificarProductoVista$2
+compra2.Vista.ModificarProductoVista$1
+compra2.Vista.ModificarProductoVista

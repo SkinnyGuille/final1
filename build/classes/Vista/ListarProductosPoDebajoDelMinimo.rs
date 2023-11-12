@@ -1,0 +1,3 @@
+compra2.Vista.ListarProductosPoDebajoDelMinimo$1
+compra2.Vista.ListarProductosPoDebajoDelMinimo$2
+compra2.Vista.ListarProductosPoDebajoDelMinimo

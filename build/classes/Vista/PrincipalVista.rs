@@ -1,0 +1,16 @@
+compra2.Vista.PrincipalVista$2
+compra2.Vista.PrincipalVista$3
+compra2.Vista.PrincipalVista
+compra2.Vista.PrincipalVista$4
+compra2.Vista.PrincipalVista$5
+compra2.Vista.PrincipalVista$6
+compra2.Vista.PrincipalVista$7
+compra2.Vista.PrincipalVista$8
+compra2.Vista.PrincipalVista$9
+compra2.Vista.PrincipalVista$15
+compra2.Vista.PrincipalVista$13
+compra2.Vista.PrincipalVista$14
+compra2.Vista.PrincipalVista$11
+compra2.Vista.PrincipalVista$12
+compra2.Vista.PrincipalVista$1
+compra2.Vista.PrincipalVista$10

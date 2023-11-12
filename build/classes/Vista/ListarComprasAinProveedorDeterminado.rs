@@ -1,0 +1,5 @@
+compra2.Vista.ListarComprasAinProveedorDeterminado
+compra2.Vista.ListarComprasAinProveedorDeterminado$3
+compra2.Vista.ListarComprasAinProveedorDeterminado$4
+compra2.Vista.ListarComprasAinProveedorDeterminado$1
+compra2.Vista.ListarComprasAinProveedorDeterminado$2
