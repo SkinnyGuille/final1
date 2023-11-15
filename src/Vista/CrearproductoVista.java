@@ -157,23 +157,56 @@ public class CrearproductoVista extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarActionPerformed
-        Producto producto=new Producto();
-        ProductoDataBase pData=new ProductoDataBase();
-        try{
-        producto.setNombreProducto(nombre.getText());
-        producto.setDescripcion(desctipcion.getText());
-        producto.setPrecioActual(Double.parseDouble(precio.getText()));
-        producto.setStock(Integer.parseInt(stock.getText()));
-        if(comboEstado.getSelectedItem().equals("Activo")){
-            producto.setEstado(true);
-        }else{producto.setEstado(false);}
-        pData.agregarProducto(producto);
-       
-        }catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(this,"Error al introducir los datos numericos");
-        }catch(NullPointerException e){
-            JOptionPane.showMessageDialog(this,"Debe completar todos los compos para poder crear un producto");
-        }
+Producto producto = new Producto();
+ProductoDataBase pData = new ProductoDataBase();
+
+try {
+    // Obtener el nombre del producto
+    String nombreProducto = nombre.getText();
+
+    // Verificar si ya existe un producto con el mismo nombre en la base de datos
+    if (pData.existeProductoPorNombre(nombreProducto)) {
+        JOptionPane.showMessageDialog(this, "Ya existe un producto con el mismo nombre");
+        return; // Salir del método si ya existe un producto con el mismo nombre
+    }
+
+    // Configurar los datos del producto
+    producto.setNombreProducto(nombreProducto);
+    producto.setDescripcion(desctipcion.getText());
+    producto.setPrecioActual(Double.parseDouble(precio.getText()));
+    producto.setStock(Integer.parseInt(stock.getText()));
+
+    if (comboEstado.getSelectedItem().equals("Activo")) {
+        producto.setEstado(true);
+    } else {
+        producto.setEstado(false);
+    }
+
+    // Agregar el producto solo si no existe otro con el mismo nombre
+    pData.agregarProducto(producto);
+
+} catch (NumberFormatException e) {
+    JOptionPane.showMessageDialog(this, "Error al introducir los datos numéricos");
+} catch (NullPointerException e) {
+    JOptionPane.showMessageDialog(this, "Debe completar todos los campos para poder crear un producto");
+}       
+//Producto producto=new Producto();
+//        ProductoDataBase pData=new ProductoDataBase();
+//        try{
+//        producto.setNombreProducto(nombre.getText());
+//        producto.setDescripcion(desctipcion.getText());
+//        producto.setPrecioActual(Double.parseDouble(precio.getText()));
+//        producto.setStock(Integer.parseInt(stock.getText()));
+//        if(comboEstado.getSelectedItem().equals("Activo")){
+//            producto.setEstado(true);
+//        }else{producto.setEstado(false);}
+//        pData.agregarProducto(producto);
+//       
+//        }catch(NumberFormatException e){
+//            JOptionPane.showMessageDialog(this,"Error al introducir los datos numericos");
+//        }catch(NullPointerException e){
+//            JOptionPane.showMessageDialog(this,"Debe completar todos los compos para poder crear un producto");
+//        }
     }//GEN-LAST:event_guardarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

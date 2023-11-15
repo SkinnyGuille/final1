@@ -20,8 +20,9 @@ public class AltaBajaProveedor extends javax.swing.JInternalFrame {
         initComponents();
         darDeAlta.setSelectedItem(null);
         darDeBaja.setSelectedItem(null);
-        cargarAlta();
         cargarBaja();
+        cargarAlta();
+        
     }
 
     /**
@@ -127,7 +128,7 @@ public class AltaBajaProveedor extends javax.swing.JInternalFrame {
         
         Proveedor proveedor=new Proveedor();
           ProveedorDataBase pvData=new ProveedorDataBase();
-         proveedor=(Proveedor) darDeBaja.getSelectedItem();
+         proveedor =(Proveedor) darDeBaja.getSelectedItem();
          if(proveedor.isEstado()==true){
              proveedor.setEstado(false);
          }
@@ -172,13 +173,13 @@ public class AltaBajaProveedor extends javax.swing.JInternalFrame {
 public void cargarAlta(){
     ProveedorDataBase pvData=new ProveedorDataBase();
     for (Proveedor o : pvData.listarProveedoresActivo()) {
-       darDeAlta.addItem(o);
+       darDeBaja.addItem(o);
     } 
 }
 public void cargarBaja(){
     ProveedorDataBase pvData=new ProveedorDataBase();
     for (Proveedor o : pvData.listarProveedoresInactivo()) {
-       darDeBaja.addItem(o);
+       darDeAlta.addItem(o);
     } 
 }
 

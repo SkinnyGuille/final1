@@ -74,6 +74,11 @@ public class ModificarProductoVista extends javax.swing.JInternalFrame {
         jLabel2.setText("Nuevo nombre;");
 
         salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
         reiniciar.setText("Reiniciar");
         reiniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -221,7 +226,8 @@ public class ModificarProductoVista extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_reiniciarActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         Producto p=new Producto();
+
+        Producto p=new Producto();
          ProductoDataBase producto=new ProductoDataBase();
 
        try{
@@ -243,6 +249,11 @@ public class ModificarProductoVista extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this,"Todos los campos deben compterase");
        }
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // TODO add your handling code here:
+         dispose();
+    }//GEN-LAST:event_salirActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

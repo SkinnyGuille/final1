@@ -28,7 +28,6 @@ public class ProductoDataBase {
 
         con = Conexion.getConexion();
     }
-    
     public void agregarProducto(Producto p) {
         String sql = "INSERT INTO producto ( nombreProducto, descripcion, precioActual,stock, estado) "
                 + "VALUES (?,?,?,?,?);";
@@ -55,8 +54,7 @@ public class ProductoDataBase {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla Producto  " + ex.getMessage());
         }
-    }
-    
+    }  
     public void bajaProducto(int id) {
         String sql = "UPDATE producto SET estado = 0 WHERE idProducto = ? ";
         try {           
@@ -70,7 +68,6 @@ public class ProductoDataBase {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Producto");
         }
     }
-    
     public void altaProducto(int id) {
         String sql = "UPDATE producto SET estado = 1 WHERE idProducto = ? ";
         try {           
@@ -84,7 +81,6 @@ public class ProductoDataBase {
             JOptionPane.showMessageDialog(null, " Error al acceder a la tabla Producto");
         }
     }
-    
     public void modificarProducto(Producto p, String s) {
         String sql="UPDATE `producto` SET `nombreProducto`=?,"
                     + "`descripcion`=?,`precioActual`=?,`stock`=?,`estado`=? where nombreProducto=?";
@@ -107,7 +103,7 @@ public class ProductoDataBase {
         }
            
     }
-  public void modificarProductoPorId(Producto p, int s) {
+    public void modificarProductoPorId(Producto p, int s) {
         String sql="UPDATE `producto` SET `nombreProducto`=?,"
                     + "`descripcion`=?,`precioActual`=?,`stock`=?,`estado`=? where idProducto=?";
             try {
@@ -129,9 +125,7 @@ public class ProductoDataBase {
         }
            
     }
-  
-  
-         public Producto buscarProducto(int id){
+    public Producto buscarProducto(int id){
         String sql="select * from producto where idProducto=? ";
         Producto p=null;
         try {           
@@ -158,8 +152,7 @@ public class ProductoDataBase {
         }
         return p;
     }
-         
-          public ArrayList<Producto> listarProductosTodos() {
+    public ArrayList<Producto> listarProductosTodos() {
         String sql = "SELECT * FROM producto  ";
         ArrayList<Producto> productos = new ArrayList<Producto>();
 
@@ -187,7 +180,7 @@ public class ProductoDataBase {
         return productos;
 
     }
-             public ArrayList<Producto> listarProductosActivos() {
+    public ArrayList<Producto> listarProductosActivos() {
         String sql = "SELECT * FROM producto where estado=1 ";
         ArrayList<Producto> productos = new ArrayList<Producto>();
 
@@ -215,7 +208,7 @@ public class ProductoDataBase {
         return productos;
 
     }
-                public ArrayList<Producto> listarProductosInactivos() {
+    public ArrayList<Producto> listarProductosInactivos() {
         String sql = "SELECT * FROM producto where estado=0  ";
         ArrayList<Producto> productos = new ArrayList<Producto>();
 
@@ -242,10 +235,8 @@ public class ProductoDataBase {
         }
         return productos;
 
-                }
-                
-                
-                      public ArrayList<Producto> listarProductosPorFecha(LocalDate fecha) {
+                }                
+    public ArrayList<Producto> listarProductosPorFecha(LocalDate fecha) {
         String sql = " SELECT producto.* FROM `producto` " +
 "inner join detallecompra on(producto.idProducto=detallecompra.idProducto) " +
 "inner join compra on(compra.idCompra=detallecompra.idCompra) " +
@@ -277,8 +268,7 @@ public class ProductoDataBase {
         return productos;
 
     }
-        
-         public ArrayList<Producto> listarProductosPorDejajoDelMinimo() {
+    public ArrayList<Producto> listarProductosPorDejajoDelMinimo() {
         String sql = "SELECT * FROM producto where estado=1 and  stock < 5 ";
         ArrayList<Producto> productos = new ArrayList<Producto>();
 
@@ -306,7 +296,7 @@ public class ProductoDataBase {
         return productos;
 
     }
-           public void modificarProductoStock(Producto p, int cantidad, int idProducto) {
+    public void modificarProductoStock(Producto p, int cantidad, int idProducto) {
         String sql="UPDATE `producto` SET `stock`=? where idProducto=?";
             try {
             PreparedStatement ps = con.prepareStatement(sql);
@@ -324,9 +314,7 @@ public class ProductoDataBase {
         }
            
     }
-           
-           
-         public Producto buscarProductoPorNombre(String nombre){
+    public Producto buscarProductoPorNombre(String nombre){
         String sql="select * from producto where nombreProducto=? ";
         Producto p=null;
         try {           
@@ -353,4 +341,23 @@ public class ProductoDataBase {
         }
         return p;
     }
+    public boolean existeProductoPorNombre(String nombre) {
+    String sql = "SELECT COUNT(*) FROM producto WHERE nombreProducto = ?";
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setString(1, nombre);
+        ResultSet rs = ps.executeQuery();
+        
+        if (rs.next()) {
+            int count = rs.getInt(1);
+            return count > 0; // Devuelve true si hay al menos un producto con el mismo nombre
+        }
+        
+        ps.close();
+    } catch (SQLException ex) {
+        JOptionPane.showMessageDialog(null, "Error al verificar la existencia del producto" + ex.getMessage());
+    }
+    
+    return false;
+}
 }
