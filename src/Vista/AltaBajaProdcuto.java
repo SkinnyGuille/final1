@@ -188,8 +188,8 @@ public void cargarBaja(){
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> darDeAlta;
-    private javax.swing.JComboBox<String> darDeBaja;
+    private javax.swing.JComboBox<Producto> darDeAlta;
+    private javax.swing.JComboBox<Producto> darDeBaja;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
