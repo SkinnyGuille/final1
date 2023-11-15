@@ -247,7 +247,7 @@ public class PrincipalVista extends javax.swing.JFrame {
     private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
          jDesktopPane1.removeAll();
         jDesktopPane1.repaint();
-        RealizarComp ventanaInterna = new RealizarComp();
+        RealizarComp2 ventanaInterna = new RealizarComp2();
         ventanaInterna.setVisible(true);
          Dimension desktopSize = jDesktopPane1.getSize();
 

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package Vista;
+package compra2.Vista;
 import compra2.Vista.PrincipalVista;
 import compra2.DataBase.CompraDataBase;
 import compra2.DataBase.DetalleCompraDataBase;
@@ -23,7 +23,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author RODRI
  */
-public class RealizarComp extends javax.swing.JInternalFrame {
+public class RealizarComp2 extends javax.swing.JInternalFrame {
 
        private Integer cantidad=0;
     Compra x=new Compra();
@@ -40,18 +40,16 @@ public class RealizarComp extends javax.swing.JInternalFrame {
 
         }
 };
-    public RealizarComp() {
+    public RealizarComp2() {
         initComponents();
           cabeceraTabla();
         cargarComboProductos();
         cargarComboProveedores();
         cargarComboCantidad();
-        llenarTablaInicio();
-      jcCantidad.setEnabled(false);
+        llenarTabla();
+//      jcCantidad.setSelectedItem(null);
 //        jcProductos.setSelectedItem(null);
-       jcProveedor.setEnabled(false);
-       jTable1.setEnabled(false);
-       jButton1.setEnabled(false);
+//        jcProveedor.setSelectedItem(null);
     }
 
     /**
@@ -77,8 +75,6 @@ public class RealizarComp extends javax.swing.JInternalFrame {
         jLabel5 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
-        jLabel6 = new javax.swing.JLabel();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jcCantidad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -132,8 +128,6 @@ public class RealizarComp extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel6.setText("Fecha");
-
         contenedor.setLayer(jcCantidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         contenedor.setLayer(jcProductos, javax.swing.JLayeredPane.DEFAULT_LAYER);
         contenedor.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -146,8 +140,6 @@ public class RealizarComp extends javax.swing.JInternalFrame {
         contenedor.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         contenedor.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         contenedor.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        contenedor.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        contenedor.setLayer(jDateChooser1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout contenedorLayout = new javax.swing.GroupLayout(contenedor);
         contenedor.setLayout(contenedorLayout);
@@ -156,45 +148,40 @@ public class RealizarComp extends javax.swing.JInternalFrame {
             .addGroup(contenedorLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(contenedorLayout.createSequentialGroup()
                         .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jcProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(81, 81, 81))
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 371, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(contenedorLayout.createSequentialGroup()
-                                .addGap(11, 11, 11)
-                                .addComponent(jButton3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1)
-                                .addGap(86, 86, 86)
-                                .addComponent(jButton2)))
-                        .addGap(0, 17, Short.MAX_VALUE))
-                    .addGroup(contenedorLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jcProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(155, 155, 155))))
+                        .addGap(27, 27, 27)
+                        .addComponent(jButton3)
+                        .addGap(104, 104, 104)
+                        .addComponent(jButton1)
+                        .addGap(126, 126, 126)
+                        .addComponent(jButton2)
+                        .addGap(0, 0, Short.MAX_VALUE))))
             .addGroup(contenedorLayout.createSequentialGroup()
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(contenedorLayout.createSequentialGroup()
-                        .addGap(96, 96, 96)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(contenedorLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, contenedorLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(jLabel5)
                         .addGap(38, 38, 38)
-                        .addComponent(jcCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jcCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGap(96, 96, 96)
+                        .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jcProductos, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jcProveedor, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(contenedorLayout.createSequentialGroup()
+                        .addGap(162, 162, 162)
+                        .addComponent(jLabel1)))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, contenedorLayout.createSequentialGroup()
+                .addContainerGap(28, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 600, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 16, Short.MAX_VALUE))
         );
         contenedorLayout.setVerticalGroup(
             contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -210,17 +197,13 @@ public class RealizarComp extends javax.swing.JInternalFrame {
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21)
+                .addGap(27, 27, 27)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jcCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel6)
-                    .addComponent(jDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addGroup(contenedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2)
@@ -279,11 +262,10 @@ public class RealizarComp extends javax.swing.JInternalFrame {
         }catch(Exception e){
 
         }
-        jButton1.setEnabled(true);
     }//GEN-LAST:event_jcCantidadActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-try{
+
         DetalleCompraDataBase z=new DetalleCompraDataBase();
         CompraDataBase c=new CompraDataBase();
         Producto producto=new Producto();
@@ -301,9 +283,6 @@ try{
         contenedor.add(ventanaInterna);
         
         contenedor.moveToFront(ventanaInterna);
-}catch(NullPointerException e){
-    JOptionPane.showMessageDialog(this, "No ha seleccionado los campos necesarios para realizar esta operacion");
-}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jcProductosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcProductosActionPerformed
@@ -327,7 +306,6 @@ try{
        }catch(NullPointerException e){
            llenarTabla();
        }
-       jcProveedor.setEnabled(true);
     }//GEN-LAST:event_jcProductosActionPerformed
 
     private void jcProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jcProveedorActionPerformed
@@ -349,8 +327,6 @@ try{
        }catch(NullPointerException e){
            llenarTabla();
        }
-       jTable1.setEnabled(true);
-       jcCantidad.setEnabled(true);
     }//GEN-LAST:event_jcProveedorActionPerformed
 
 
@@ -359,13 +335,11 @@ try{
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JComboBox<Integer> jcCantidad;
@@ -427,7 +401,7 @@ public void llenarTabla(){
      }catch(NumberFormatException e){
          JOptionPane.showMessageDialog(this, "Parece haber un error en los datos ingresados");
      }catch(NullPointerException e){
-//          JOptionPane.showMessageDialog(this, "Debe seleccionar todos los campos");
+          JOptionPane.showMessageDialog(this, "Debe seleccionar todos los campos");
      }
 }
   public void borrarlista(){
@@ -436,28 +410,4 @@ public void llenarTabla(){
         modelo.removeRow(i);
     }
       }
-  
-  public void llenarTablaInicio(){
-     RelacionPaP x=new RelacionPaP();
-     
-     try{
-     
-        borrarlista();
-        for (RelacionProductoProveedor p : x.listarrelacionActivas()) {
-          
-            modelo.addRow(new Object[]{
-              p.getProveedor(),p.getProducto(),  p.getProducto(),p.getProveedor(),p.getProducto(), cantidad, "Seleccione una cantidad" });}
-          
-        
-    
-     }catch(NumberFormatException e){
-         JOptionPane.showMessageDialog(this, "Parece haber un error en los datos ingresados");
-     }catch(NullPointerException e){
-          
-     }
-}
-  public void fechaActual(){
-      jTextField1
-              LocalTime.
-  }
 }
