@@ -19,6 +19,7 @@ public class CrearproductoVista extends javax.swing.JInternalFrame {
      */
     public CrearproductoVista() {
         initComponents();
+        minimoProducto ();
     }
 
     /**
@@ -239,4 +240,16 @@ try {
     private javax.swing.JButton reiniciar;
     private javax.swing.JTextField stock;
     // End of variables declaration//GEN-END:variables
+
+public void minimoProducto (){
+    Producto producto=new Producto();
+    ProductoDataBase pData=new ProductoDataBase();
+    if(pData.listarProductosPorDejajoDelMinimo().isEmpty()){
+        JOptionPane.showMessageDialog(this, "No hay productos por debajo del stock minimo");
+    }else{
+ 
+     JOptionPane.showMessageDialog(this, "Tiene productos por dejajo del stock minimo. Verifique en Listar productos por debajo del minimo");
+        
+    }
+}
 }

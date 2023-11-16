@@ -2,8 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package compra2.Vista;
-
+package  Vista;
 import compra2.DataBase.ProductoDataBase;
 import compra2.Entidades.Producto;
 
@@ -42,8 +41,6 @@ public class AltaBajaProdcuto extends javax.swing.JInternalFrame {
 
         jLabel1.setText("Seleccione el producto que desea dar de baja");
 
-        darDeBaja.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-
         jButton1.setText("Dar de baja");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,8 +49,6 @@ public class AltaBajaProdcuto extends javax.swing.JInternalFrame {
         });
 
         jLabel2.setText("Seleccione el producto que desea dar de alta");
-
-        darDeAlta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton2.setText("Dar de alta");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
